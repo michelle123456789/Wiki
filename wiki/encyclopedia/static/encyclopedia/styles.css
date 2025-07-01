@@ -36,3 +36,9 @@ textarea {
 .sidebar h2 {
     margin-top: 5px;
 }
+
+form{
+    display: flexbox;
+    flex-direction: column;
+    background-color: red;
+}

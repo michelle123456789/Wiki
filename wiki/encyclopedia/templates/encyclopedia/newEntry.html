@@ -1,0 +1,28 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}New entry{% endblock %}
+
+{% block body %}
+    <h1>New entry</h1>
+    {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+    <form action="{% url 'newEntry' %}" method="post">
+        {% comment %} mandatory in Django forms due to safety reasons {% endcomment %}
+        {% csrf_token %} 
+        <div>
+            {% comment %} for attribute references label to textbox {% endcomment %}
+            <label for="title">Title:</label><br>
+            <input type="text" name="title" id="title" required>
+        </div>
+
+        <div>
+            <label for="entryText">Entry Text:</label><br>
+            <textarea name="entryText" id="entryText" rows="10" cols="80" required></textarea>
+        </div>
+
+        <div>
+            <input type="submit" value="Create Entry" class="btn btn-primary">
+        </div>
+    </form>
+{% endblock %}
