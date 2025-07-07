@@ -9,4 +9,8 @@
     {% else %}
         <p><strong>Entry not found.</strong></p>
     {% endif %}
+    {% comment %} Django {%url%} tag -> dynamically generates correct URL for the editEntry route in urls.py -> substitutes titel into path wiki/<str:title>/editEntry {% endcomment %}
+    <form action="{% url 'editEntry' title=title %}" class = edit-button>
+        <input type="submit" value="Edit" class="btn btn-primary"/>
+    </form>
 {% endblock %}

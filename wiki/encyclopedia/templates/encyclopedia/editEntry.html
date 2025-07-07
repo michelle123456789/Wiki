@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}Edit entry{% endblock %}
+
+{% block body %}
+    <h1>{{title}}</h1>
+    {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+    <form action="{% url 'editEntry' title%}" method="post">
+        {% comment %} mandatory in Django forms due to safety reasons {% endcomment %}
+        {% csrf_token %} 
+
+        <div>
+            <label for="entryText">Entry Text:</label><br>
+            <textarea name="entryText" id="entryText" rows="5" cols="10" required>{{content}}</textarea>
+        </div>
+
+        <div>
+            <input type="submit" value="Save" class="btn btn-primary">
+        </div>
+    </form>
+{% endblock %}

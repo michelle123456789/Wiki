@@ -1,3 +1,4 @@
+/*When making changes to this file use hard refresh Ctrl + F5 as style files cached to improve performance*/
 body {
     margin: 0;
     background-color: white;
@@ -10,11 +11,6 @@ code {
 h1 {
     margin-top: 0px;
     padding-top: 20px;
-}
-
-textarea {
-    height: 90vh;
-    width: 80%;
 }
 
 .main {
@@ -38,7 +34,17 @@ textarea {
 }
 
 form{
-    display: flexbox;
+    display: flex;
     flex-direction: column;
-    background-color: red;
+}
+
+textarea {
+    width: 98%;
+    height: auto;
+    resize: vertical; /* allows the user to resize vertically only */
+}
+
+.edit-button{
+    display: inline-block;
+    margin-top: 10px;
 }
