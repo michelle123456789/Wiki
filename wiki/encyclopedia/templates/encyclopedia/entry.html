@@ -3,14 +3,8 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block body %}
-    <h1>{{ title }}</h1>
-    {% if content %}
-        <p>{{ content }}</p>
-    {% else %}
-        <p><strong>Entry not found.</strong></p>
-    {% endif %}
-    {% comment %} Django {%url%} tag -> dynamically generates correct URL for the editEntry route in urls.py -> substitutes titel into path wiki/<str:title>/editEntry {% endcomment %}
-    <form action="{% url 'editEntry' title=title %}" class = edit-button>
-        <input type="submit" value="Edit" class="btn btn-primary"/>
-    </form>
+    {% comment %} to only display the text and not also the html tags {% endcomment %}
+    {{content | safe}}
+    <a class="btn btn-primary" href="{% url 'editEntry' title=title %}">Edit</a>
+    
 {% endblock %}

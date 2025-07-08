@@ -7,7 +7,7 @@
     {% if error %}
         <div class="alert alert-danger">{{ error }}</div>
     {% endif %}
-    <form action="{% url 'newEntry' %}" method="post">
+    <form action="{% url 'newEntry' %}" method="POST">
         {% comment %} mandatory in Django forms due to safety reasons {% endcomment %}
         {% csrf_token %} 
         <div>
